@@ -1,16 +1,25 @@
 import React from 'react';
 import YeomanImage from './YeomanImage';
+import SearchResult from './searchresult';
+import SearchInput from './searchinput';
 import './app.css';
 
 class AppComponent extends React.Component {
 
+  constructor(props){
+    super(props);
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="index">
-        <YeomanImage />
-        <div className="notice">
-          Please edit <code>src/components/App.js</code> to get started!
-        </div>
+        <SearchInput printAction={this.props.actions.search}>
+        </SearchInput>
+        <SearchResult className="notice"
+        searchResults={this.props.search}>
+
+        </SearchResult>
       </div>
     );
   }

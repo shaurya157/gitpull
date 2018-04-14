@@ -15,8 +15,8 @@ import Main from '../components/App';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions} = this.props;
-    return <Main actions={actions}/>;
+    const {actions, search} = this.props;
+    return <Main actions={actions} search={search}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -24,11 +24,14 @@ class App extends Component {
  * HINT: if you adjust the initial type of your reducer, you will also have to
  *       adjust it here.
  */
-App.propTypes = { actions: PropTypes.shape({ search: PropTypes.func.isRequired }) };
+App.propTypes = {
+  actions: PropTypes.shape({ search: PropTypes.func.isRequired }),
+  search: PropTypes.shape({})
+};
 function mapStateToProps(state) {
   // eslint-disable-line no-unused-vars
   /* Populated by react-webpack-redux:reducer */
-  const props = {};
+  const props = { search: state.search };
   return props;
 }
 function mapDispatchToProps(dispatch) {
