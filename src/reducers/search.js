@@ -5,7 +5,7 @@
  */
 import {SEARCH} from '../actions/const';
 const initialState = {
-  repo: ""
+  repos:[]
 };
 
 function reducer(state = initialState, action) {
