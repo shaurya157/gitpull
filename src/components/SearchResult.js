@@ -12,10 +12,11 @@ class SearchResult extends React.Component {
   }
 
   componentWillReceiveProps(nextProps, prevState){
-    debugger
+    console.log('receiving props');
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="searchresult-component">
         Works

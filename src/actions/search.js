@@ -1,7 +1,7 @@
 import { SEARCH } from './const';
 
-function action(repo) {
-  return { type: SEARCH, repo };
+function action(repoName) {
+  return { type: SEARCH, repoName };
 }
 
 module.exports = action;

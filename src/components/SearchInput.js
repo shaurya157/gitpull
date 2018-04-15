@@ -6,18 +6,19 @@ class SearchInput extends React.Component {
   constructor(props){
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  handleClick(){
-    this.props.printAction('fun');
+  handleKeyPress(e){
+    // console.log(e.target.value);
+    this.props.printAction(e.target.value);
     // console.log(this.props.printAction);
   }
 
   render() {
     return (
       <div className="searchinput-component">
-        <button onClick={this.handleClick}>Click Me</button>
+        <input onKeyUp={this.handleKeyPress} />
       </div>
     );
   }
