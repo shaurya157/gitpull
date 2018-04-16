@@ -7,7 +7,7 @@ class SearchResult extends React.Component {
     super(props);
 
     this.state = {
-      repos: [{name: 'fun'}, {name: 'cool'}]
+      repos: [{name: ''}]
     }
 
     this.listRepos = this.listRepos.bind(this);
