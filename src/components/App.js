@@ -14,7 +14,7 @@ class AppComponent extends React.Component {
     console.log(this.props);
     return (
       <div className="index">
-        <SearchInput printAction={this.props.actions.search}>
+        <SearchInput seachGithub={this.props.actions.search}>
         </SearchInput>
         <SearchResult className="notice"
         searchResults={this.props.search}>

@@ -7,19 +7,31 @@ class SearchResult extends React.Component {
     super(props);
 
     this.state = {
-      repos: []
+      repos: [{name: 'fun'}, {name: 'cool'}]
     }
+
+    this.listRepos = this.listRepos.bind(this);
   }
 
   componentWillReceiveProps(nextProps, prevState){
-    console.log('receiving props');
+    this.setState({repos: nextProps.searchResults.repos});
+  }
+
+  listRepos(){
+    return this.state.repos.map((repo, index) => {
+      return (
+        <li key={index}><a href={repo.html_url} target="_blank">{repo.name}</a></li>
+      )
+    })
   }
 
   render() {
     console.log(this.props);
     return (
       <div className="searchresult-component">
-        Works
+        <ul>
+          {this.listRepos()}
+        </ul>
       </div>
     );
   }

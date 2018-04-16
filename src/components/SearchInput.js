@@ -7,12 +7,16 @@ class SearchInput extends React.Component {
     super(props);
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.searchString = ""
   }
 
   handleKeyPress(e){
     // console.log(e.target.value);
-    this.props.printAction(e.target.value);
-    // console.log(this.props.printAction);
+    fetch(`https://api.github.com/search/repositories?q=${e.target.value}&per_page=100`).then(response => {
+      return response.json();
+    }).then(result => {
+      this.props.seachGithub(result.items);
+    })
   }
 
   render() {
