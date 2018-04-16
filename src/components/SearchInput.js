@@ -12,11 +12,17 @@ class SearchInput extends React.Component {
 
   handleKeyPress(e){
     // console.log(e.target.value);
-    fetch(`https://api.github.com/search/repositories?q=${e.target.value}&per_page=100`).then(response => {
-      return response.json();
-    }).then(result => {
-      this.props.seachGithub(result.items);
-    })
+    this.searchString = e.target.value;
+    let string = e.target.value;
+    setTimeout(function(){
+      if(string === this.searchString){
+        fetch(`https://api.github.com/search/repositories?q=${this.searchString}&per_page=100`).then(response => {
+          return response.json();
+        }).then(result => {
+          this.props.seachGithub(result.items);
+        })
+      }
+    }.bind(this), 1000)
   }
 
   render() {
